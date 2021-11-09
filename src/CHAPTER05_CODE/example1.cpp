@@ -1,6 +1,11 @@
 // Sphere approximation by recursive subdivision of a tetrahedron
-
 #include "Angel.h"
+#ifdef near
+#undef near
+#endif
+#ifdef far
+#undef far
+#endif
 
 typedef Angel::vec4  color4;
 typedef Angel::vec4  point4;
