@@ -9,10 +9,14 @@ typedef GLfloat     point3[3];
 #include "vertices.h"
 #include "patches.h"
 
+template<typename T> constexpr T ipow(T num, unsigned int pow) {
+    return (pow >= sizeof(unsigned int) * 8) ? 0 : pow == 0 ? 1 : num * ipow(num, pow - 1);
+}
+
 const int NumTimesToSubdivide = 3;
 const int PatchesPerSubdivision = 4;
 const int NumQuadsPerPatch =
-    (int) pow( PatchesPerSubdivision, NumTimesToSubdivide );
+    (int) ipow( PatchesPerSubdivision, NumTimesToSubdivide );
 const int NumTriangles =
     ( NumTeapotPatches * NumQuadsPerPatch * 2 /* triangles / quad */ );
 const int NumVertices =
