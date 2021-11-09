@@ -65,7 +65,7 @@ FOREACH(subdir ${SUBDIRS})
 
         if (MSVC)
             #    set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT start_scene)
-            set_property(TARGET ${TARGET_NAME} PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+            set_property(TARGET ${TARGET_NAME} PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/src/${subdir}")
         endif(MSVC)
 
         if (APPLE)
