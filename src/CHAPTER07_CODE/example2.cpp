@@ -1,6 +1,6 @@
-#define N 36
-
 #include "Angel.h"
+
+#define N 36
 
 typedef Angel::vec4 point4;
 
