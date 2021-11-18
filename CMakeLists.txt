@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.0)
 project(CITS3003_Labs)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -77,6 +77,12 @@ FOREACH(subdir ${SUBDIRS})
         add_custom_command(TARGET ${TARGET_NAME}
                 POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${TARGET_NAME}> ${CMAKE_CURRENT_SOURCE_DIR}/src/${subdir}/${SHORT_TARGET_NAME}${CMAKE_EXECUTABLE_SUFFIX})
+                
+	set_property(
+		TARGET ${TARGET_NAME}
+		APPEND
+		PROPERTY ADDITIONAL_CLEAN_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/${subdir}/${SHORT_TARGET_NAME}${CMAKE_EXECUTABLE_SUFFIX}
+	)
 
     ENDFOREACH()
 ENDFOREACH()
