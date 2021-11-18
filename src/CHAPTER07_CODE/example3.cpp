@@ -201,8 +201,10 @@ int main(int argc, char** argv)
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
     glutInitWindowSize(1024, 1024);
 
-    glutInitContextVersion( 3, 2 );
-	glutInitContextProfile( GLUT_CORE_PROFILE );
+    #ifndef __APPLE__
+        glutInitContextVersion( 3, 2 );
+	    glutInitContextProfile( GLUT_CORE_PROFILE );
+    #endif
 
     glutCreateWindow("Simple GLSL example");
     glutDisplayFunc(draw);
@@ -210,7 +212,9 @@ int main(int argc, char** argv)
     glutKeyboardFunc(keyboard);
     glutIdleFunc(idle);
 
-	glewInit();
+    #ifndef __APPLE__
+	    glewInit();
+    #endif
 
     program = InitShader("vshader73.glsl", "fshader73.glsl");
     init();

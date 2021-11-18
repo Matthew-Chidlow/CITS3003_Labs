@@ -501,8 +501,10 @@ main( int argc, char **argv )
 
     // If you don't see a simple robot composed of rectangles of different
     // shapes and sizes, then try to comment out the following two lines.
-     glutInitContextVersion( 3, 2 );
-     glutInitContextProfile( GLUT_CORE_PROFILE );
+    #ifndef __APPLE__
+        glutInitContextVersion( 3, 2 );
+        glutInitContextProfile( GLUT_CORE_PROFILE );
+    #endif
 
     glutInitWindowSize( 500, 500 );
     glutCreateWindow( "robot" );
