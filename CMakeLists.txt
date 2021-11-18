@@ -74,11 +74,9 @@ FOREACH(subdir ${SUBDIRS})
             target_link_libraries(${TARGET_NAME} angel libglew_static freeglut_static)
         endif()
 
-        set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME ${SHORT_TARGET_NAME})
-
         add_custom_command(TARGET ${TARGET_NAME}
                 POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${TARGET_NAME}> ${CMAKE_CURRENT_SOURCE_DIR}/src/${subdir})
+                COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${TARGET_NAME}> ${CMAKE_CURRENT_SOURCE_DIR}/src/${subdir}/${SHORT_TARGET_NAME}${CMAKE_EXECUTABLE_SUFFIX})
 
     ENDFOREACH()
 ENDFOREACH()
