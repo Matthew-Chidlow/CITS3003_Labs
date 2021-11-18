@@ -19,8 +19,16 @@ void init()
 {
 
     GLuint vao;
-    glGenVertexArrays( 1, &vao );
-    glBindVertexArray( vao );
+    #ifdef __APPLE__
+        glGenVertexArraysAPPLE( 1, &vao );
+    #else
+        glGenVertexArrays( 1, &vao );
+    #endif
+    #ifdef __APPLE__
+        glBindVertexArrayAPPLE( vao );
+    #else
+        glBindVertexArray(vao);
+    #endif
 
     // Create and initialize a buffer object
     GLuint buffer;

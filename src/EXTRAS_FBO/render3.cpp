@@ -130,8 +130,16 @@ void init(void)
     divide_triangle(vertices[0], vertices[1], vertices[2], NumTimesToSubdivide);
 
     // Create vertex array objects
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
+    #ifdef __APPLE__
+        glGenVertexArraysAPPLE( 1, &vao );
+    #else
+        glGenVertexArrays( 1, &vao );
+    #endif
+    #ifdef __APPLE__
+        glBindVertexArrayAPPLE( vao );
+    #else
+        glBindVertexArray(vao);
+    #endif
     // Create and initialize a buffer object to store the vertices
     // that form the sierpinski triangle
     glGenBuffers(1, &buffer);
