@@ -393,7 +393,9 @@ int main( int argc, char **argv )
     glutAttachMenu( GLUT_MIDDLE_BUTTON );
 
     // The line below is commented to work on the Mac
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 

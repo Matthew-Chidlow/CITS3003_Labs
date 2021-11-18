@@ -324,7 +324,9 @@ main( int argc, char **argv )
     glutInitContextProfile( GLUT_CORE_PROFILE );
     glutCreateWindow( "Simple GLSL example" );
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 

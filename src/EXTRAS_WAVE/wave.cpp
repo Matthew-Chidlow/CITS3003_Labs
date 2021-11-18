@@ -121,7 +121,9 @@ int main(int argc, char** argv)
     glutKeyboardFunc(keyboard);
     glutIdleFunc(idle);
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
     InitShader("vmesh.glsl", "fmesh.glsl");

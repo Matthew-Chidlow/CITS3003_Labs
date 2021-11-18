@@ -193,7 +193,9 @@ int main( int argc, char *argv[] )
     // glutInitContextProfile( GLUT_CORE_PROFILE );
     glutCreateWindow( "mandlebrot" );
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 

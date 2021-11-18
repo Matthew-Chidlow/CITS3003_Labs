@@ -178,8 +178,10 @@ int main(int argc, char** argv)
     glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(512, 512);
 
-    glutInitContextVersion( 3, 2 );
-    glutInitContextProfile( GLUT_CORE_PROFILE );
+    #ifndef __APPLE__
+        glutInitContextVersion( 3, 2 );
+        glutInitContextProfile( GLUT_CORE_PROFILE );
+    #endif
 
     glutCreateWindow("Color Cube");
     glutDisplayFunc(display);
@@ -187,7 +189,9 @@ int main(int argc, char** argv)
     glutIdleFunc(spinCube);
     glutKeyboardFunc(mykey);
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
     init();
 
     glEnable(GL_DEPTH_TEST);

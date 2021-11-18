@@ -211,7 +211,9 @@ main( int argc, char **argv )
     glutInitWindowSize( 512, 512 );
     glutCreateWindow( "Simple GLSL example" );
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 

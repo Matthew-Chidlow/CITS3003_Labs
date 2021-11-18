@@ -101,12 +101,16 @@ main( int argc, char **argv )
     // If you are using freeglut, the next two lines will check if 
     // the code is truly 3.2. Otherwise, comment them out
     
-    glutInitContextVersion( 3, 2 );
-    glutInitContextProfile( GLUT_CORE_PROFILE );
+    #ifndef __APPLE__
+        glutInitContextVersion( 3, 2 );
+        glutInitContextProfile( GLUT_CORE_PROFILE );
+    #endif
 
     glutCreateWindow( "Sierpinski Gasket" );
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 

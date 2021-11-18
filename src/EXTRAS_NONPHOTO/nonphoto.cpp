@@ -236,7 +236,9 @@ main( int argc, char **argv )
     glutInitWindowSize( 512, 512 );
     glutCreateWindow( "Color Cube" );
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 

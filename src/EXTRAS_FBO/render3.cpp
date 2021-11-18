@@ -235,7 +235,9 @@ int main(int argc, char **argv)
     glutInitWindowSize(512, 512);
     glutCreateWindow("Sierpinski gasket from a generated texture map");
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 

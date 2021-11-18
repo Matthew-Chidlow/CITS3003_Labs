@@ -227,11 +227,15 @@ main( int argc, char **argv )
     glutInit( &argc, argv );
     glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH );
     glutInitWindowSize( WIN_WIDTH, WIN_HEIGHT );
-    glutInitContextVersion( 3, 2 );
-    glutInitContextProfile( GLUT_CORE_PROFILE );
+    #ifndef __APPLE__
+        glutInitContextVersion( 3, 2 );
+        glutInitContextProfile( GLUT_CORE_PROFILE );
+    #endif
     glutCreateWindow( "Color Cube" );
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 

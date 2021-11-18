@@ -507,7 +507,9 @@ main( int argc, char **argv )
     glutInitWindowSize( 500, 500 );
     glutCreateWindow( "robot" );
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 

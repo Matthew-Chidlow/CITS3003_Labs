@@ -272,7 +272,9 @@ main( int argc, char **argv )
     glutInitWindowSize( TEXSIZE, TEXSIZE );
     glutCreateWindow( "Simple GLSL example" );
 
-    glewInit();
+    #ifndef __APPLE__
+        glewInit();
+    #endif
 
     init();
 
